@@ -1,0 +1,28 @@
+apiVersion: ai.sap.com/v1alpha1
+kind: ServingTemplate
+metadata:
+  name: aicore-exe
+  annotations:
+    scenarios.ai.sap.com/description: "aicore-serve"
+    scenarios.ai.sap.com/name: "aicore-serve"
+    executables.ai.sap.com/description: "aicore-exe"
+    executables.ai.sap.com/name: "aicore-exe"
+  labels:
+    scenarios.ai.sap.com/id: "aicore-serve"
+    ai.sap.com/version: "1.0.0"
+spec:
+  template:
+    apiVersion: "serving.kubeflow.org/v1beta1"
+    metadata:
+      labels: |
+        ai.sap.com/resourcePlan: infer.s
+    spec: |
+      predictor:
+        imagePullSecrets:
+          - name: huggingfacesecret
+        containers:
+        - name: kfserving-container
+          image: "321880606331.dkr.ecr.us-east-1.amazonaws.com/huggingface_test:v1"
+          ports:
+            - containerPort: 8080
+              protocol: TCP
