@@ -22,7 +22,7 @@ spec:
           - name: huggingfacesecret
         containers:
         - name: kfserving-container
-          image: "321880606331.dkr.ecr.us-east-1.amazonaws.com/huggingface_test:finetune_newversion"
+          image: "321880606331.dkr.ecr.us-east-1.amazonaws.com/huggingface_test:finetune"
           ports:
             - containerPort: 8080
               protocol: TCP
