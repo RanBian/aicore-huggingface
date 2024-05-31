@@ -14,15 +14,21 @@ spec:
   template:
     apiVersion: "serving.kubeflow.org/v1beta1"
     metadata:
+      annotations: |
+        autoscaling.knative.dev/metric: concurrency
+        autoscaling.knative.dev/target: 1
+        autoscaling.knative.dev/targetBurstCapacity: 0
       labels: |
         ai.sap.com/resourcePlan: infer.s
     spec: |
       predictor:
         imagePullSecrets:
           - name: huggingfacesecret
+        minReplicas: 1
+        maxReplicas: 2
         containers:
         - name: kfserving-container
-          image: "321880606331.dkr.ecr.us-east-1.amazonaws.com/huggingface_test:finetune_121"
+          image: "321880606331.dkr.ecr.us-east-1.amazonaws.com/huggingface_test:finetune"
           ports:
             - containerPort: 8080
               protocol: TCP
