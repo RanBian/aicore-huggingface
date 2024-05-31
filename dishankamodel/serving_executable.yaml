@@ -23,7 +23,7 @@ spec:
     spec: |
       predictor:
         imagePullSecrets:
-          - name: huggingfacesecret
+          - name: huggingfacesecret2
         minReplicas: 1
         maxReplicas: 2
         containers:
