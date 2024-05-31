@@ -9,17 +9,17 @@ metadata:
     executables.ai.sap.com/name: "aicore-exe"
   labels:
     scenarios.ai.sap.com/id: "aicore-serve"
-    ai.sap.com/version: "1.0.0"
+    ai.sap.com/version: "1.0.1"
 spec:
   template:
-    apiVersion: "serving.kubeflow.org/v1beta1"
+    apiVersion: "serving.kserve.io/v1beta1"
     metadata:
       annotations: |
         autoscaling.knative.dev/metric: concurrency
         autoscaling.knative.dev/target: 1
         autoscaling.knative.dev/targetBurstCapacity: 0
       labels: |
-        ai.sap.com/resourcePlan: infer.s
+        ai.sap.com/resourcePlan: infer.l
     spec: |
       predictor:
         imagePullSecrets:
