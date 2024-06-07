@@ -23,12 +23,12 @@ spec:
     spec: |
       predictor:
         imagePullSecrets:
-          - name: huggingfacesecret3
+          - name: huggingfacesecret4
         minReplicas: 1
         maxReplicas: 2
         containers:
         - name: kfserving-container
-          image: "321880606331.dkr.ecr.us-east-1.amazonaws.com/huggingface_test:Phi3"
+          image: "321880606331.dkr.ecr.us-east-1.amazonaws.com/huggingface_test:gemma"
           ports:
             - containerPort: 8080
               protocol: TCP
