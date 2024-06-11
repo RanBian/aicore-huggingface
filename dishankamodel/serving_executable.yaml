@@ -28,7 +28,7 @@ spec:
         maxReplicas: 2
         containers:
         - name: kfserving-container
-          image: "321880606331.dkr.ecr.us-east-1.amazonaws.com/huggingface_test:gemma"
+          image: "321880606331.dkr.ecr.us-east-1.amazonaws.com/huggingface_test:Phi3"
           ports:
             - containerPort: 8080
               protocol: TCP
